@@ -58,7 +58,7 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="..../public/js/app.js"></script>
+    <script src="..../public/js/app.js"></script>
 </body>
 </html>
