@@ -1,3 +1,4 @@
+<!-- get -->
 @extends('layouts.logout')
 
 @section('content')

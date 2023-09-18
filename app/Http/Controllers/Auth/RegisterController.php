@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
+use App\Http\Requests\RegisterFormRequest;
 
 class RegisterController extends Controller
 {
@@ -39,6 +40,12 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
+    // 最初にgetで表示させるviewページ
+    public function registerView(request $request){
+        return view('auth.register');
+    }
+
+    // postで登録・バリデーションを反映させる
     public function register(RegisterFormRequest $request){
         if($request->isMethod('post')){
 
@@ -54,7 +61,6 @@ class RegisterController extends Controller
 
             return redirect('added');
         }
-        return view('auth.RegisterView');
     }
 
     public function added(){
