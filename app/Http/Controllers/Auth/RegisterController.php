@@ -39,7 +39,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request){
+    public function register(RegisterFormRequest $request){
         if($request->isMethod('post')){
 
             $username = $request->input('username');
@@ -54,7 +54,7 @@ class RegisterController extends Controller
 
             return redirect('added');
         }
-        return view('auth.register');
+        return view('auth.RegisterView');
     }
 
     public function added(){
