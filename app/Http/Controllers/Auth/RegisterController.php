@@ -41,7 +41,7 @@ class RegisterController extends Controller
     }
 
     // 最初にgetで表示させるviewページ
-    public function registerView(request $request){
+    public function registerView(Request $request){
         return view('auth.register');
     }
 
@@ -59,7 +59,9 @@ class RegisterController extends Controller
                 'password' => bcrypt($password),
             ]);
 
-            return redirect('added');
+            $input=$request->session()->get('username',$username);
+            return redirect('added')->with('username',$input);
+            // with=データを取得する関数
         }
     }
 

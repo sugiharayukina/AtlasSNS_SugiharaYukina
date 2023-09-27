@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,12 +29,14 @@
         <h1><a><img src="images/logo.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
+                    @auth
+                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
+                    @endauth
                 <div>
                 <ul>
                     <li><a href="/top">ホーム</a></li>
                     <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/login">ログアウト</a></li>
+                    <li><a href="/logout">ログアウト</a></li>
                 </ul>
             </div>
         </div>
@@ -41,7 +47,9 @@
         </div >
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                @auth
+                <p>{{ Auth::user()->username }}さんの</p>
+                @endauth
                 <div>
                 <p>フォロー数</p>
                 <p>〇〇名</p>

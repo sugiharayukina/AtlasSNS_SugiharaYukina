@@ -14,16 +14,19 @@
 
 //Auth::routes();
 
-
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 
+// 新規取得ページ
 Route::get('/register', 'Auth\RegisterController@registerView');
 Route::post('/register', 'Auth\RegisterController@register');
 
 Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
+
+
+Route::group(['middleware' => ['loginUserCheck']], function() {
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
@@ -37,3 +40,5 @@ Route::get('/follower-list','PostsController@index');
 
 // ログアウトする
 Route::get('/logout', 'Auth\LoginController@logout');
+
+});
