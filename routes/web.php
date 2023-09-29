@@ -12,8 +12,6 @@
 */
 
 
-//Auth::routes();
-
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
@@ -38,7 +36,7 @@ Route::get('/search','UsersController@index');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
+});
+
 // ログアウトする
 Route::get('/logout', 'Auth\LoginController@logout');
-
-});
