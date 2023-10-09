@@ -1,6 +1,6 @@
-<?php
+<!-- 自分でミドルウェア作ったけどできなかったページ -->
 
-namespace App\Http\Middleware;
+<?php
 
 use Closure;
 use Auth;

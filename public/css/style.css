@@ -1,22 +1,123 @@
 @charset "utf-8";
-html{
+
+html {
+    font-size: 16px;
 }
-body{
-}
+
+body {}
+
 /* header */
-header{
-    background:#186AC9;
+header {
+    background: #186AC9;
+    align-items: center;
+    display: flex;
+    height: 85px;
+}
+
+#head {
+    display: flex;
+    align-items: center;
 }
 
 /* main content */
-#row{
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
+
+#side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    height: 100%;
+}
+
+/* アコーディオンメニュー */
+.accordion-title {
+    color: #fff;
+    cursor: pointer;
+    font-size: 21px;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.accordion-title::after {
+    border-right: solid 2px #fff;
+    border-top: solid 2px #fff;
+    content: "";
+    display: flex;
+    height: 8px;
+    position: absolute;
+    right: -10px;
+    top: 28%;
+    transform: rotate(135deg);
+    transition: transform .3s ease-in-out, top .3s ease-in-out;
+    width: 8px;
+    align-items: center;
+}
+
+.accordion-title.open::after {
+    top: 45%;
+    transform: rotate(-45deg);
+}
+
+.accordion-content {
+    display: none;
+    position: absolute;
+    top: 65px;
+}
+
+.accordion-content li {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.accordion-lists:nth-child(1n) {
+    background-color: #fff;
+}
+
+.accordion-lists a:nth-child(1n) {
+    color: #727272;
+}
+
+.accordion-lists:nth-child(2) {
+    background-color: #00297e;
+}
+
+.accordion-lists a:nth-child(2) {
+    color: #fff;
+}
+
+.accordion-item {
+    display: flex;
+    align-items: center;
+}
+
+.accordion-icon {
+    position: absolute;
+    display: flex;
+    right: 30px;
+    height: 50px;
+}
+
+.accordion-lists {
+    border-bottom: 1px solid #727272;
+    border-left: 1px solid #727272;
+    border-right: 1px solid #727272;
+    text-align: center;
+    padding: 10px 20px;
+}
+
+.accordion {
+    position: absolute;
+    display: flex;
+    right: 120px;
+}
+
+.logo {
+    width: 100px;
+    padding-left: 30px;
 }

@@ -24,7 +24,7 @@ Route::get('/added', 'Auth\RegisterController@added');
 Route::post('/added', 'Auth\RegisterController@added');
 
 
-Route::group(['middleware' => ['loginUserCheck']], function() {
+Route::group(['middleware' => 'auth'], function() {
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');

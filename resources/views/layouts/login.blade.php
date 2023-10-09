@@ -1,14 +1,10 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8" />
     <!--IEブラウザ対策-->
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="ページの内容を表す文章" />
+    <meta name="description" content="SNSトップページ" />
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
@@ -22,23 +18,28 @@
     <!--iphoneのアプリアイコン指定-->
     <link rel="apple-touch-icon-precomposed" href="画像のURL" />
     <!--OGPタグ/twitterカード-->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/script.js"></script>
 </head>
 <body>
     <header>
         <div id = "head">
-        <h1><a><img src="images/logo.png"></a></h1>
-            <div id="">
-                <div id="">
+        <h1><a href="/top"><img src="images/atlas.png" class="logo"></a></h1>
+            <div class="accordion-item">
+                <div class="accordion">
                     @auth
-                    <p>{{ Auth::user()->username }}さん<img src="images/arrow.png"></p>
+                    <h3 class="accordion-title js-accordion-title">
+                        {{ Auth::user()->username }}  さん
+                    </h3>
                     @endauth
-                <div>
-                <ul>
-                    <li><a href="/top">ホーム</a></li>
-                    <li><a href="/profile">プロフィール</a></li>
-                    <li><a href="/logout">ログアウト</a></li>
-                </ul>
-            </div>
+                    <ul class="accordion-content">
+                        <li class="accordion-lists"><a href="/top">HOME</a></li>
+                        <li class="accordion-lists"><a href="/profile">プロフィール編集</a></li>
+                        <li class="accordion-lists"><a href="/logout">ログアウト</a></li>
+                    </ul>
+                </div>
+                <h3 class="accordion-icon"><img src="images/icon1.png"></h3>
+            <div>
         </div>
     </header>
     <div id="row">
@@ -54,14 +55,14 @@
                 <p>フォロー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div>
                 <p>フォロワー数</p>
                 <p>〇〇名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
     </div>
     <footer>
