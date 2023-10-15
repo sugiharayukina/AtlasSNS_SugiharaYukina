@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ItemsController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,3 +42,9 @@ Route::get('/follower-list','PostsController@index');
 
 // ログアウトする
 Route::get('/logout', 'Auth\LoginController@logout');
+
+// 投稿フォーム
+// 表示用
+Route::get('/posts','PostsController@index');
+// 投稿を押した時
+Route::post('/posts','PostsController@store')->name('post.store');
