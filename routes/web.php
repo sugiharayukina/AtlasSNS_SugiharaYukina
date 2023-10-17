@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,13 +38,11 @@ Route::get('/search','UsersController@index');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
+// 投稿フォーム
+// 投稿を押した時
+Route::get('/posts', 'PostsController@index');
+Route::post('/posts', 'PostsController@store');
 });
 
 // ログアウトする
 Route::get('/logout', 'Auth\LoginController@logout');
-
-// 投稿フォーム
-// 表示用
-Route::get('/posts','PostsController@index');
-// 投稿を押した時
-Route::post('/posts','PostsController@store')->name('post.store');
