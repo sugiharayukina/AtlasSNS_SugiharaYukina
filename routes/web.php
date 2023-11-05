@@ -38,10 +38,14 @@ Route::get('/search','UsersController@index');
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
 
-// 投稿フォーム
 // 投稿を押した時
-Route::get('/posts', 'PostsController@index');
-Route::post('/posts', 'PostsController@store');
+Route::post('/posts', 'PostsController@create');
+// 編集
+Route::get('/update', 'PostsController@update');
+Route::post('/update', 'PostsController@update')->name('posts.update');
+// 削除
+Route::get('/destroy', 'PostsController@destroy');
+Route::post('/destroy', 'PostsController@destroy');
 });
 
 // ログアウトする

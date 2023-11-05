@@ -41,6 +41,7 @@ header {
 
 /* アコーディオンメニュー */
 .accordion-title {
+    z-index: 10;
     color: #fff;
     cursor: pointer;
     font-size: 21px;
@@ -69,29 +70,31 @@ header {
 }
 
 .accordion-content {
+    z-index: 20;
     display: none;
     position: absolute;
-    top: 62px;
+    top: 63px;
 }
 
 .accordion-content li {
+    z-index: 30;
     font-size: 25px;
     white-space: nowrap;
 }
 
-.accordion-lists:nth-child(odd) {
+.accordion-lists {
+    z-index: 40;
     background-color: #fff;
 }
 
-.accordion-lists a:nth-of-type(odd) {
+.accordion-lists a {
+    z-index: 50;
     color: #727272;
 }
 
-.accordion-lists:nth-child(2) {
+.accordion-lists:hover {
+    z-index: 60;
     background-color: #00297e;
-}
-
-.accordion-lists a:nth-of-type(2) {
     color: #fff;
 }
 
@@ -111,7 +114,6 @@ header {
     border-bottom: 1px solid #727272;
     border-left: 1px solid #727272;
     border-right: 1px solid #727272;
-    border-top: 1px solid #727272;
     text-align: center;
     padding: 30px 40px;
     right: 30px;
@@ -144,7 +146,7 @@ header {
 
 .post-button {
     padding: 0;
-    height: 50px;
+    height: 45px;
     border: none;
 }
 
@@ -173,4 +175,102 @@ header {
 ::placeholder {
     color: #e0e0e0;
     font-size: 20px;
+}
+
+/* 投稿欄 */
+.post-chart {
+    display: block;
+}
+
+.post-block {
+    display: block;
+    border-bottom: 1px solid #727272;
+    padding: 10px 10px 10px 120px;
+}
+
+.post-list {
+    display: block;
+    justify-content: space-around;
+}
+
+.post-icon {
+    padding: 5px;
+    height: 50px;
+}
+
+.content {
+    text-align: right;
+    padding: 10px;
+    display: block;
+}
+
+.post {
+    width: 75%;
+    vertical-align: top;
+    padding: 10px 10px;
+    line-height: 1.1rem;
+}
+
+.post-name {
+    font-size: 1.1rem;
+}
+
+.text {
+    font-size: 85%;
+}
+
+.post-time {
+    text-align: right;
+    width: 100%;
+    padding: 10px;
+    font-size: small;
+    vertical-align: top;
+}
+
+.js-modal-open {
+    padding-right: 60px;
+}
+
+.js-modal-open img {
+    width: 35px;
+}
+
+.post-delete {
+    position: relative;
+    right: 40px;
+}
+
+.post-delete img {
+    height: 35px;
+    position: absolute;
+}
+
+.post-delete img:last-of-type {
+    opacity: 0;
+    transition: opacity .2s;
+    border-radius: 4px;
+    height: 45px;
+    left: -5px;
+    top: -25px;
+}
+
+.post-delete:hover img {
+    opacity: 1;
+}
+
+/* モーダル機能 */
+.modal {
+    display: none;
+}
+
+.modal__content {
+    border: none;
+    outline: none;
+    resize: none;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.modal_post {
+    border: 1px solid #727272;
 }

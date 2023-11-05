@@ -24,7 +24,7 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="images/atlas.png" class="logo"></a></h1>
+        <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}" class="logo"></a></h1>
             <div class="accordion-item">
                 <div class="accordion">
                     @auth
@@ -38,7 +38,7 @@
                         <li class="accordion-lists"><a href="/logout">ログアウト</a></li>
                     </ul>
                 </div>
-                <h3 class="accordion-icon"><img src="images/icon1.png"></h3>
+                <h3 class="accordion-icon"><img src="{{ asset('images/icon1.png') }}"></h3>
             <div>
         </div>
     </header>
