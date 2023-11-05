@@ -30,11 +30,12 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    public function update(Request $request, Post $post){
+    public function update(Request $request){
+        dd($id, $request->updatePost);
         $id = $request->input('id');
-        $update_post = $request->input('updatePost');
-        Post::where('id', $request->id)->update(['post'=> $request->update_post]);
-        return redirect()->route('posts.update');
+        // $update_post = $request->input('updatePost');
+        Post::where('id', $request->id)->update(['post'=> $request->updatePost]);
+        return redirect('/top');
     }
 
     public function destroy($id){

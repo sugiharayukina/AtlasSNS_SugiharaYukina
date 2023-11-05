@@ -29,7 +29,7 @@
                 </table>
                   <div class="content">
                     <!-- 投稿の編集ボタン -->
-                    <a type="submit" class="js-modal-open" href="/update" post="{{ $post->post }}" post_id="{{ Auth::user()->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集"></a>
+                    <a type="submit" class="js-modal-open" post="{{ $post->post }}" post_id="{{ Auth::user()->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集"></a>
                     @csrf
                     @method('DELETE')
                     <a type="submit" class="post-delete" href="/destroy"><img src="{{ asset('images/trash.png') }}" alt="削除">
@@ -42,13 +42,13 @@
                 <div class="modal js-modal">
                   <div class="modal__bg js-modal-close"></div>
                   <div class="modal__content">
-                    <form action="/update" method="post">
+                    {{ Form::open(['url' => '/update', 'method' => 'Post']) }}
                       <textarea name="updatePost" class="modal_post"></textarea>
                       <input type="hidden" name="id" class="modal_id" value="">
-                      <a type="submit" class="js-modal-close" href="/destroy"><img src="{{ asset('images/edit.png') }}" alt="更新"></a>
+                      <input type="submit" class="js-modal-close" value="更新">
                       <!-- <input type="submit" value="" class="js-modal-close"><img src="{{ asset('images/edit.png') }}" alt="更新"> -->
-                      {{ csrf_field() }}
-                    </form>
+                      <!-- {{ csrf_field() }} -->
+                    {{ Form::close() }}
                   </div>
                 </div>
         </ul>
