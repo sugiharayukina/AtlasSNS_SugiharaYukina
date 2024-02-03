@@ -27,14 +27,15 @@
                     <td rowspan="2" class="post-time">{{ $post->created_at }}</td>
                   </tr>
                 </table>
+                @if ((Auth::user()->id == $post->user_id))
                   <div class="content">
                     <!-- 投稿の編集ボタン -->
-                    <a type="submit" class="js-modal-open" post="{{ $post->post }}" post_id="{{ Auth::user()->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集"></a>
-                    @csrf
-                    @method('DELETE')
-                    <a type="submit" class="post-delete" href="/destroy"><img src="{{ asset('images/trash.png') }}" alt="削除">
+                    <a type="submit" class="js-modal-open" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}" alt="編集"></a>
+                    <!-- 削除ボタン -->
+                    <a class="post-delete" href="/post/{{$post->id}}/delete"  onclick="return confirm('この投稿を削除します。よろしいでしょうか？')"><img src="{{ asset('images/trash.png') }}" alt="削除">
                     <img src="{{ asset('images/trash-h.png') }}" alt="削除"></a>
                   </div>
+                @endif
             </li>
           @endforeach
 
@@ -45,9 +46,7 @@
                     {{ Form::open(['url' => '/update', 'method' => 'Post']) }}
                       <textarea name="updatePost" class="modal_post"></textarea>
                       <input type="hidden" name="id" class="modal_id" value="">
-                      <input type="submit" class="js-modal-close" value="更新">
-                      <!-- <input type="submit" value="" class="js-modal-close"><img src="{{ asset('images/edit.png') }}" alt="更新"> -->
-                      <!-- {{ csrf_field() }} -->
+                      <button type="submit" class="up-button"><img src="{{ asset('images/edit.png') }}" alt="更新"></button>
                     {{ Form::close() }}
                   </div>
                 </div>

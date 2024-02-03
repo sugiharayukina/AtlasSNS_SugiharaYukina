@@ -33,10 +33,14 @@ Route::get('/top','PostsController@index');
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search')->name('users.search');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','FollowsController@followList');
+Route::get('/follower-list','FollowsController@followerList');
+
+// フォロー
+Route::get('/users/{user}/follow', 'FollowsController@follow');
+Route::get('/users/{user}/unfollow', 'FollowsController@unfollow');
 
 // 投稿を押した時
 Route::post('/posts', 'PostsController@create');
@@ -44,8 +48,7 @@ Route::post('/posts', 'PostsController@create');
 Route::get('/update', 'PostsController@update');
 Route::post('/update', 'PostsController@update')->name('posts.update');
 // 削除
-Route::get('/destroy', 'PostsController@destroy');
-Route::post('/destroy', 'PostsController@destroy');
+Route::get('/post/{id}/delete', 'PostsController@delete');
 });
 
 // ログアウトする

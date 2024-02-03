@@ -2,6 +2,7 @@
 
 html {
     font-size: 16px;
+    height: 100%;
 }
 
 body {
@@ -29,14 +30,92 @@ header {
 }
 
 #container {
+    /* display: block;
+    flex-direction: column; */
+    /* height: 100%; */
     flex: 0 0 80%;
-    height: 100%;
 }
 
+.btn {
+    border: none;
+    box-shadow: none;
+    border: none;
+}
+
+/* サイドバー */
 #side-bar {
-    flex: 0 0 19%;
+    display: block;
+    position: relative;
+    flex: 1 19%;
     border-left: 1px solid #727272;
-    height: 100%;
+    min-height: 100%;
+}
+
+#confirm {
+    border-bottom: 1px solid #727272;
+    padding: 10px 20px 30px 20px;
+    line-height: 3.5rem;
+}
+
+.s-btn {
+    background-color: #0067c6;
+    border: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 8px;
+    width: 60%;
+    height: 40px;
+    margin-top: 30px;
+    margin-left: 20%;
+}
+
+.s-btn a {
+    color: #fff;
+    font-size: 1.1rem;
+    margin: 20px;
+}
+
+.bar-list {
+    display: flex;
+    padding-right: 45%;
+}
+
+.list-count {
+    margin: 0 0 0 auto;
+}
+
+.followList-btn {
+    background-color: #0067c6;
+    border-radius: 8px;
+    width: 55%;
+    height: 40px;
+    margin: 0 0 0 auto;
+}
+
+.followList-btn a {
+    position: relative;
+    color: #fff;
+    font-size: 0.9rem;
+    margin-left: 20px;
+    white-space: nowrap;
+    top: -8px;
+}
+
+.followerList-btn {
+    background-color: #0067c6;
+    border-radius: 8px;
+    width: 55%;
+    height: 40px;
+    margin: 0 0 0 auto;
+}
+
+.followerList-btn a {
+    position: relative;
+    color: #fff;
+    font-size: 0.9rem;
+    margin: 12px;
+    white-space: nowrap;
+    top: -8px;
 }
 
 /* アコーディオンメニュー */
@@ -77,24 +156,30 @@ header {
 }
 
 .accordion-content li {
-    z-index: 30;
+    /* z-index: 30; */
     font-size: 25px;
     white-space: nowrap;
 }
 
 .accordion-lists {
-    z-index: 40;
+    display: flex;
     background-color: #fff;
 }
 
 .accordion-lists a {
-    z-index: 50;
+    display: block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
     color: #727272;
+    padding: 30px 40px;
 }
 
 .accordion-lists:hover {
-    z-index: 60;
     background-color: #00297e;
+}
+
+.accordion-lists a:hover {
     color: #fff;
 }
 
@@ -115,7 +200,6 @@ header {
     border-left: 1px solid #727272;
     border-right: 1px solid #727272;
     text-align: center;
-    padding: 30px 40px;
     right: 30px;
 }
 
@@ -261,16 +345,125 @@ header {
 /* モーダル機能 */
 .modal {
     display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
-.modal__content {
-    border: none;
-    outline: none;
-    resize: none;
-    background-color: #fff;
-    border-radius: 4px;
+.modal__bg {
+    background: rgba(0, 0, 0, 0.3);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
 }
 
 .modal_post {
     border: 1px solid #727272;
+    outline: none;
+    resize: none;
+    display: block;
+    height: 200px;
+    width: 97%;
+    font-size: large;
+    padding: 10px;
+}
+
+.modal__content {
+    border: none;
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    border-radius: 8px;
+}
+
+.up-button {
+    border: none;
+    background: transparent;
+    position: relative;
+    padding: 30px;
+    display: block;
+    margin: auto;
+}
+
+.up-button img {
+    height: 35px;
+    position: absolute;
+}
+
+/* 検索機能 */
+.search-form {
+    display: flex;
+    right: 200px;
+    padding: 10px 40px;
+}
+
+.search-text {
+    position: relative;
+    outline: none;
+    width: 300px;
+    border-radius: 4px;
+    border: 1.5px solid #727272;
+    padding: 16px;
+    height: 16px;
+}
+
+.search-text::placeholder {
+    position: absolute;
+    bottom: 10px;
+    color: #707070;
+    font-size: 1.3rem;
+}
+
+.search-button {
+    position: relative;
+    border: none;
+    background: transparent;
+    top: 20px;
+}
+
+.search-button img {
+    border-radius: 4px;
+    width: 50px;
+    height: 50px;
+}
+
+.search-key {
+    font-size: 1.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: auto;
+    top: 10px;
+}
+
+/* ユーザー一覧 */
+/* table {
+    width: 200px;
+} */
+
+.user-title {
+    margin-right: 100px;
+}
+
+.list-block {
+    display: block;
+    position: relative;
+    justify-content: center;
+}
+
+.user-list {
+    display: flex;
+}
+
+.usList-1 {
+    margin: 10px;
+}
+
+.usList-2 {
+    margin: 10px;
 }

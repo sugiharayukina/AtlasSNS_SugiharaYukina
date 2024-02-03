@@ -8,6 +8,7 @@
     <title></title>
     <link rel="stylesheet" href="{{ asset('css/reset.css') }} ">
     <link rel="stylesheet" href="{{ asset('css/style.css') }} ">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
@@ -51,23 +52,24 @@
                 @auth
                 <p>{{ Auth::user()->username }}さんの</p>
                 @endauth
-                <div>
+                <div class="bar-list">
                 <p>フォロー数</p>
-                <p>〇〇名</p>
+                <p class="list-count">{{ Auth::user()->follows()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
+                <p class="followList-btn"><a href="/follow-list">フォローリスト</a></p>
+                <div class="bar-list">
                 <p>フォロワー数</p>
-                <p>〇〇名</p>
+                <p class="list-count">{{ Auth::user()->follower()->get()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <p class="followerList-btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <button type="submit" class="s-btn"><a href="/search">ユーザー検索</a></button>
         </div>
     </div>
     <footer>
     </footer>
     <script src="..../public/js/app.js"></script>
     <script src="..../public/js/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
