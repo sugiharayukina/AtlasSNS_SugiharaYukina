@@ -31,7 +31,10 @@ Route::group(['middleware' => 'auth'], function() {
 //ログイン中のページ
 Route::get('/top','PostsController@index');
 
+// プロフィール
 Route::get('/profile','UsersController@profile');
+Route::get('/users/{user}/profile','UsersController@profile');
+// Route::get('/users/{user}/profile','UsersController@');
 
 Route::get('/search','UsersController@search')->name('users.search');
 

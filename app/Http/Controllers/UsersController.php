@@ -22,4 +22,9 @@ class UsersController extends Controller
         }
         return view('users.search', ['users'=>$users, 'keyword'=>$keyword]);
     }
+
+    public function store(Request $request) {
+    $filename = $request->images->getClientOriginalName();
+    $images = $request->images->storeAs('user-images', $filename, 'public');
+    }
 }

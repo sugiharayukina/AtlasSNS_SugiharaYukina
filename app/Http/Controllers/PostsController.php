@@ -11,9 +11,9 @@ use App\Follow;
 class PostsController extends Controller
 {
     public function index() {
-        // $posts = Post::query()->whereIn('user_id', Auth::user()->follows()->pluck('followed_id'))->latest()->get();
-        // $following_id = Auth::user()->follows()->pluck('followed_id');
-        $posts = Post::orderBy('created_at', 'desc')->with('user')->whereIn('user_id', $following_id)->orWhere('user_id', 'id')->get();
+        $follows = Auth::user()->follows()->pluck('followed_id');
+        $user = Auth::user();
+        $posts = Post::orderBy('created_at', 'desc')->with('user')->whereIn('user_id', $follows)->orWhere('user_id', $user->id)->get();
         // 'posts'フォルダ内の'index'viewファイルを返す。
         // その際にview内で使用する変数を代入する。
         return view('posts.index', compact('posts'));
